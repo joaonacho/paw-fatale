@@ -1,6 +1,6 @@
 body {
   background-image: url("./../images/background.jpg");
-  background-size: 85%;
+  background-size: 82%;
   background-repeat: no-repeat;
 
   background-color: black;
@@ -39,8 +39,11 @@ span {
 
 #canvas {
   border: red 1px solid;
-  width: 500px;
-  height: 700px;
   margin-left: 900px;
   margin-top: -18%;
+  /* background-color: lightsalmon; */
+}
+
+#start-button {
+  width: 200px;
 }
