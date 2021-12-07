@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d");
 const width = canvas.width;
 const height = canvas.height;
 
-let player1 = new Player(100, 200, 45, 80);
+let player1 = new Player(220, 590, 45, 80);
 
 let background = new Background(0, 0, 0, 500, 700);
 

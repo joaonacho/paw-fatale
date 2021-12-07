@@ -13,48 +13,34 @@ class Player {
   drawPlayer() {
     console.log("this.drawPlayer", this.x, this.y);
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
-    // ctx.fillStyle = "orange";
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
-  }
-
-  moveLeft() {
-    this.x -= 20;
-  }
-
-  moveRight() {
-    this.x += 20;
-  }
-
-  moveDown() {
-    this.y += 20;
-  }
-
-  moveUp() {
-    this.y -= 20;
   }
 
   move(key) {
     switch (key) {
       case "ArrowUp":
         if (this.y > 0) {
-          this.y -= 20;
+          this.y -= 10;
         }
         break;
       case "ArrowDown":
-        if (this.y < canvas.height) {
-          this.y += 20;
+        if (this.y < height - this.height) {
+          this.y += 10;
         }
         break;
       case "ArrowLeft":
         if (this.x > 0) {
-          this.x -= 20;
+          this.x -= 10;
         }
         break;
       case "ArrowRight":
         if (this.x < width - this.width) {
-          this.x += 20;
+          this.x += 10;
         }
         break;
     }
   }
 }
+
+document.addEventListener("keydown", (keyboardEvent) => {
+  player1.move(keyboardEvent.key);
+});

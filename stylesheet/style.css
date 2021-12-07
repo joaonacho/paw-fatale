@@ -38,7 +38,8 @@ span {
 }
 
 #canvas {
-  border: red 1px solid;
+  border: darkred 1px solid;
+  border-radius: 8px;
   margin-left: 900px;
   margin-top: -18%;
   /* background-color: lightsalmon; */
@@ -46,4 +47,11 @@ span {
 
 #start-button {
   width: 200px;
+  height: 30px;
+  margin-left: 1050px;
+  font-size: 22px;
+  background-color: darkred;
+  border-radius: 8px;
+  color: lightgrey;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
