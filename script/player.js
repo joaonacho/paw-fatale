@@ -11,7 +11,6 @@ class Player {
   }
 
   drawPlayer() {
-    console.log("this.drawPlayer", this.x, this.y);
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 
