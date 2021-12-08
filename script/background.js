@@ -7,7 +7,7 @@ class Background {
     this.width = width;
     this.height = height;
     this.backImg = new Image();
-    this.backImg.src = "./../images/background-example.png";
+    this.backImg.src = "./../images/background_01.gif";
   }
 
   drawBackground() {

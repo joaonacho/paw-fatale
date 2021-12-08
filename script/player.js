@@ -7,7 +7,7 @@ class Player {
     this.width = width;
     this.height = height;
     this.img = new Image();
-    this.img.src = "./../images/character.jpg";
+    this.img.src = "./../images/mouse.png";
   }
 
   drawPlayer() {
@@ -17,22 +17,22 @@ class Player {
   move(key) {
     switch (key) {
       case "ArrowUp":
-        if (this.y > 0) {
+        if (this.y > -20) {
           this.y -= 10;
         }
         break;
       case "ArrowDown":
-        if (this.y < height - this.height) {
+        if (this.y < height - this.height + 20) {
           this.y += 10;
         }
         break;
       case "ArrowLeft":
-        if (this.x > 0) {
+        if (this.x > -20) {
           this.x -= 10;
         }
         break;
       case "ArrowRight":
-        if (this.x < width - this.width) {
+        if (this.x < width - this.width + 20) {
           this.x += 10;
         }
         break;

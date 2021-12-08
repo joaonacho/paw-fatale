@@ -3,7 +3,7 @@ class Obstacles {
   constructor(x, y, dy, width, height) {
     this.x = x;
     this.y = y;
-    this.dy = dy;
+    // this.dy = dy;
     this.width = width;
     this.height = height;
     // this.obstImg = new Image();

@@ -4,9 +4,13 @@ const ctx = canvas.getContext("2d");
 const width = canvas.width;
 const height = canvas.height;
 
-let player1 = new Player(220, 590, 45, 80);
+let player1 = new Player(210, 610, 80, 100);
 
 let background = new Background(0, 0, 0, 500, 700);
+
+// let currentGame;
+
+let currentGame = new Game();
 
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
@@ -18,14 +22,48 @@ function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+function startGame() {
+  //new game starts
+  let currentGame = new Game();
+
+  //assigns player1(previously created) to the new game
+  currentGame.player = player1;
+
+  // currentGame.player.drawPlayer();
+
+  cancelAnimationFrame(currentGame.animationId);
+
+  updateCanvas();
+}
+
 function updateCanvas() {
   clearCanvas();
 
   background.drawBackground();
   player1.drawPlayer();
+
+  currentGame.obstFreq++;
+
+  if (currentGame.obstFreq % 100 === 1) {
+    const randomObstacleX = Math.floor(Math.random() * 450);
+    const randomObstacleY = 0;
+    const randomObstacleWidth = Math.floor(Math.random() * 50) + 20;
+    const randomObstacleHeight = Math.floor(Math.random() * 50) + 20;
+
+    const newObstacle = new Obstacles(
+      randomObstacleX,
+      randomObstacleY,
+      randomObstacleWidth,
+      randomObstacleHeight
+    );
+
+    currentGame.obstacles.push(newObstacle);
+  }
+
   requestAnimationFrame(updateCanvas);
 }
 
-function startGame() {
-  updateCanvas();
-}
+currentGame.obstacles.forEach((obstacle, index) => {
+  obstacle.y += 1;
+  obstacle.drawObst();
+});

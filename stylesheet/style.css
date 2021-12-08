@@ -38,7 +38,7 @@ span {
 }
 
 #canvas {
-  border: darkred 1px solid;
+  /* border: darkred 1px solid; */
   border-radius: 8px;
   margin-left: 900px;
   margin-top: -18%;
@@ -49,6 +49,7 @@ span {
   width: 200px;
   height: 30px;
   margin-left: 1050px;
+  margin-top: 4px;
   font-size: 22px;
   background-color: darkred;
   border-radius: 8px;
