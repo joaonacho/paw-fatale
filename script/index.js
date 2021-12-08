@@ -8,8 +8,6 @@ let player1 = new Player(210, 610, 80, 100);
 
 let background = new Background(0, 0, 0, 500, 700);
 
-// let currentGame;
-
 let currentGame = new Game();
 
 window.onload = () => {
@@ -24,7 +22,7 @@ function clearCanvas() {
 
 function startGame() {
   //new game starts
-  let currentGame = new Game();
+  // let currentGame = new Game();
 
   //assigns player1(previously created) to the new game
   currentGame.player = player1;
@@ -34,6 +32,15 @@ function startGame() {
   cancelAnimationFrame(currentGame.animationId);
 
   updateCanvas();
+}
+
+//detect collision function
+function detectCollision(obstacle) {
+  return !(
+    currentGame.player.x > obstacle.x + obstacle.width ||
+    currentGame.player.x + currentGame.player.width < obstacle.x ||
+    currentGame.player.y > obstacle.y + obstacle.height
+  );
 }
 
 function updateCanvas() {
@@ -66,4 +73,8 @@ function updateCanvas() {
 currentGame.obstacles.forEach((obstacle, index) => {
   obstacle.y += 1;
   obstacle.drawObst();
+});
+
+document.addEventListener("keydown", (keyboardEvent) => {
+  currentGame.player.move(keyboardEvent.key);
 });

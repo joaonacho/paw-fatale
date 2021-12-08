@@ -39,7 +39,3 @@ class Player {
     }
   }
 }
-
-document.addEventListener("keydown", (keyboardEvent) => {
-  player1.move(keyboardEvent.key);
-});

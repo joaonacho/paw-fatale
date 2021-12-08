@@ -1,6 +1,6 @@
 //Obstacles class
 class Obstacles {
-  constructor(x, y, dy, width, height) {
+  constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
     // this.dy = dy;
