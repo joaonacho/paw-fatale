@@ -10,12 +10,12 @@ let background = new Background(0, 0, 0, 500, 700);
 
 let currentGame = new Game();
 
-let sound = document.getElementById("start-sound");
+let startSound = document.getElementById("start-sound");
 
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startGame();
-    sound.play();
+    startSound.play();
   };
 };
 
@@ -54,7 +54,7 @@ function updateCanvas() {
 
   currentGame.obstFreq++;
 
-  if (currentGame.obstFreq % 200 === 1) {
+  if (currentGame.obstFreq % 80 === 1) {
     const randomObstacleX = Math.floor(Math.random() * 450);
     const randomObstacleY = 0;
     const randomObstacleWidth = Math.floor(Math.random() * 50) + 20;
@@ -69,14 +69,20 @@ function updateCanvas() {
 
     currentGame.obstacles.push(newObstacle);
   }
-  console.log(currentGame);
+
+  currentGame.obstacles.forEach((obstacle, index) => {
+    obstacle.y += 3;
+    obstacle.drawObst();
+  });
+
+  console.log(currentGame.obstacles);
   requestAnimationFrame(updateCanvas);
 }
 
-currentGame.obstacles.forEach((obstacle, index) => {
-  obstacle.y += 1;
-  obstacle.drawObst();
-});
+// currentGame.obstacles.forEach((obstacle, index) => {
+//   obstacle.y += 1;
+//   obstacle.drawObst();
+// });
 
 document.addEventListener("keydown", (keyboardEvent) => {
   currentGame.player.move(keyboardEvent.key);

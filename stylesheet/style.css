@@ -20,6 +20,11 @@ h1 {
   /* border: white 2px solid; */
   margin-left: 10%;
   margin-top: 10%;
+  transition: color 0.5s;
+}
+
+h1:hover {
+  color: darkred;
 }
 
 p {
@@ -55,4 +60,9 @@ span {
   border-radius: 8px;
   color: lightgrey;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: background-color 0.25s;
+}
+
+#start-button:hover {
+  background-color: rgb(167, 2, 2);
 }
