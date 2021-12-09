@@ -10,9 +10,12 @@ let background = new Background(0, 0, 0, 500, 700);
 
 let currentGame = new Game();
 
+let sound = document.getElementById("start-sound");
+
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startGame();
+    sound.play();
   };
 };
 
@@ -51,7 +54,7 @@ function updateCanvas() {
 
   currentGame.obstFreq++;
 
-  if (currentGame.obstFreq % 100 === 1) {
+  if (currentGame.obstFreq % 200 === 1) {
     const randomObstacleX = Math.floor(Math.random() * 450);
     const randomObstacleY = 0;
     const randomObstacleWidth = Math.floor(Math.random() * 50) + 20;
@@ -66,7 +69,7 @@ function updateCanvas() {
 
     currentGame.obstacles.push(newObstacle);
   }
-
+  console.log(currentGame);
   requestAnimationFrame(updateCanvas);
 }
 
