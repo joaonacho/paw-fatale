@@ -49,14 +49,14 @@ span {
   margin-top: -18%;
   background-image: url("./../images/mouse.png");
   background-blend-mode: screen;
-  background-repeat: repeat-y;
-  transition: background-position 4s linear;
-  background-position: -68px;
-  background-size: 68px;
+  background-repeat: repeat-x;
+  transition: background-position 4s ease-in-out;
+  background-position: bottom;
+  background-size: 72px;
 }
 
 #canvas:hover {
-  background-position-x: 500px;
+  background-position-y: 0px;
 }
 
 #start-button {

@@ -39,9 +39,10 @@ function startGame() {
 //detect collision function
 function detectCollision(obstacle) {
   return !(
-    currentGame.player.x > obstacle.x + obstacle.width ||
-    currentGame.player.x + currentGame.player.width < obstacle.x ||
-    currentGame.player.y > obstacle.y + obstacle.height
+    currentGame.player.x > obstacle.x + obstacle.width - 20 ||
+    currentGame.player.x + currentGame.player.width - 20 < obstacle.x ||
+    currentGame.player.y > obstacle.y + obstacle.height - 20 ||
+    currentGame.player.y + currentGame.player.height - 20 < obstacle.y
   );
 }
 
@@ -76,6 +77,25 @@ function updateCanvas() {
     }
 
     obstacle.drawObst();
+
+    //Check collision
+    if (detectCollision(obstacle)) {
+      currentGame.gameOver = true;
+      currentGame.obstFreq = 0;
+      currentGame.score = 0;
+      currentGame.obstacles = [];
+      // document.getElementById("score").innerHTML = 0;
+      // document.getElementById("game-board").style.display = "none";
+      cancelAnimationFrame(currentGame.animationId);
+      alert("BOOOOMM! GAME OVER!");
+      console.log("death by paw");
+    }
+
+    if (obstacle.x > canvas.width) {
+      // currentGame.score++;
+      // document.getElementById("score").innerHTML = currentGame.score;
+      currentGame.obstacles.splice(index, 1);
+    }
   });
 
   requestAnimationFrame(updateCanvas);
