@@ -6,7 +6,7 @@ class Background {
     // this.dy = dy;
     this.width = width;
     this.height = height;
-    this.speed = -2;
+    this.speed = -0.2;
     this.backImg = new Image();
     this.backImg.src = "./../images/background_01.gif";
   }

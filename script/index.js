@@ -12,10 +12,14 @@ let currentGame = new Game();
 
 let startSound = document.getElementById("start-sound");
 
+let restartSound = document.getElementById("restart-sound");
+
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startGame();
     startSound.play();
+    document.getElementById("start-button").style.visibility = "hidden";
+    document.getElementById("restart-button").style.visibility = "visible";
   };
 };
 
