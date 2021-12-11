@@ -7,6 +7,14 @@ body {
   background-color: black;
 }
 
+#scoreDiv {
+  font-size: 25px;
+  color: white;
+  margin-top: 5px;
+  margin-left: 1105px;
+  height: 2px;
+}
+
 .section-1 {
   display: flex;
   flex-wrap: wrap;

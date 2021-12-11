@@ -14,6 +14,8 @@ let startSound = document.getElementById("start-sound");
 
 let restartSound = document.getElementById("restart-sound");
 
+let pawHit = document.getElementById("paw-hit");
+
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startGame();
@@ -56,17 +58,17 @@ function updateCanvas() {
   currentGame.obstFreq++;
 
   if (currentGame.obstFreq % 50 === 1) {
-    const randomObstacleWidth = Math.floor(Math.random() * 150) + 100;
+    const randomObstacleWidth = Math.floor(Math.random() * 160) + 100;
     const randomObstacleX = -randomObstacleWidth;
     const randomObstacleY = Math.floor(Math.random() * 600);
-    const randomObstacleHeight = 40;
+    const randomObstacleHeight = 50;
 
     //right side
     const randomObstX = canvas.width;
 
     const rightSideObstacle = new Obstacles(
       randomObstX,
-      randomObstacleY + 100,
+      randomObstacleY - 80,
       randomObstacleWidth,
       randomObstacleHeight
     );
@@ -102,16 +104,18 @@ function updateCanvas() {
       currentGame.score = 0;
       currentGame.rightSideObst = [];
       currentGame.obstacles = [];
-      // document.getElementById("score").innerHTML = 0;
+      document.getElementById("score").innerHTML = 0;
       // document.getElementById("game-board").style.display = "none";
+      pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
-      alert("BOOOOMM! GAME OVER!");
+
+      // alert("BOOOOMM! GAME OVER!");
       console.log("death by paw");
     }
 
     if (obstacle.x > canvas.width) {
-      // currentGame.score++;
-      // document.getElementById("score").innerHTML = currentGame.score;
+      currentGame.score++;
+      document.getElementById("score").innerHTML = currentGame.score;
 
       currentGame.rightSideObst.splice(index, 1);
     }
@@ -138,17 +142,17 @@ function updateCanvas() {
       currentGame.score = 0;
       currentGame.rightSideObst = [];
       currentGame.obstacles = [];
-      // document.getElementById("score").innerHTML = 0;
+      document.getElementById("score").innerHTML = 0;
       // document.getElementById("game-board").style.display = "none";
+      pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
-      alert("BOOOOMM! GAME OVER!");
+      // alert("BOOOOMM! GAME OVER!");
       console.log("death by paw");
     }
 
     if (obstacle.x + obstacle.width <= 0) {
-      // currentGame.score++;
-
-      // document.getElementById("score").innerHTML = currentGame.score;
+      currentGame.score++;
+      document.getElementById("score").innerHTML = currentGame.score;
       currentGame.obstacles.splice(index, 1);
     }
   });
