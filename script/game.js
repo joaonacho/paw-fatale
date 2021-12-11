@@ -8,5 +8,6 @@ class Game {
     this.score = 0;
     this.animationId = null;
     this.gameOver = false;
+    this.cheese = new Cheese(200, 350);
   }
 }

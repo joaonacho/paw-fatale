@@ -4,15 +4,21 @@ const ctx = canvas.getContext("2d");
 const width = canvas.width;
 const height = canvas.height;
 
+document.getElementById("scoreDiv").style.visibility = "hidden";
+
+//starting classes
 let player1 = new Player(210, 610, 80, 100);
 
 let background = new Background(500, 700);
 
 let currentGame = new Game();
 
+//sound effects
 let startSound = document.getElementById("start-sound");
 
 let restartSound = document.getElementById("restart-sound");
+
+let cheeseSound = document.getElementById("cheese");
 
 let pawHit = document.getElementById("paw-hit");
 
@@ -22,6 +28,7 @@ window.onload = () => {
     startSound.play();
     document.getElementById("start-button").style.visibility = "hidden";
     document.getElementById("restart-button").style.visibility = "visible";
+    document.getElementById("scoreDiv").style.visibility = "visible";
   };
 };
 
@@ -33,7 +40,7 @@ function startGame() {
   //assigns player1(previously created) to the new game
   currentGame.player = player1;
 
-  cancelAnimationFrame(currentGame.animationId);
+  // cancelAnimationFrame(currentGame.animationId);
 
   updateCanvas();
 }
@@ -54,6 +61,16 @@ function updateCanvas() {
   background.drawBackground();
   background.moveBack();
   player1.drawPlayer();
+
+  currentGame.cheese.drawCheese();
+
+  const gotCheese = currentGame.cheese.cheeseCollision(currentGame.player);
+  if (gotCheese) {
+    currentGame.cheese.setRandomPosition();
+    cheeseSound.play();
+    currentGame.score += 15;
+    document.getElementById("score").innerHTML = currentGame.score;
+  }
 
   currentGame.obstFreq++;
 
@@ -108,15 +125,11 @@ function updateCanvas() {
       // document.getElementById("game-board").style.display = "none";
       pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
-
-      // alert("BOOOOMM! GAME OVER!");
       console.log("death by paw");
     }
 
     if (obstacle.x > canvas.width) {
-      currentGame.score++;
-      document.getElementById("score").innerHTML = currentGame.score;
-
+      // currentGame.score++;
       currentGame.rightSideObst.splice(index, 1);
     }
   });
@@ -146,13 +159,10 @@ function updateCanvas() {
       // document.getElementById("game-board").style.display = "none";
       pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
-      // alert("BOOOOMM! GAME OVER!");
       console.log("death by paw");
     }
 
     if (obstacle.x + obstacle.width <= 0) {
-      currentGame.score++;
-      document.getElementById("score").innerHTML = currentGame.score;
       currentGame.obstacles.splice(index, 1);
     }
   });
