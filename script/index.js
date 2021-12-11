@@ -55,34 +55,52 @@ function updateCanvas() {
 
   currentGame.obstFreq++;
 
-  if (currentGame.obstFreq % 80 === 1) {
+  if (currentGame.obstFreq % 50 === 1) {
     const randomObstacleWidth = Math.floor(Math.random() * 150) + 100;
     const randomObstacleX = -randomObstacleWidth;
     const randomObstacleY = Math.floor(Math.random() * 600);
     const randomObstacleHeight = 40;
 
+    //right side
+    const randomObstX = canvas.width;
+
+    const rightSideObstacle = new Obstacles(
+      randomObstX,
+      randomObstacleY + 100,
+      randomObstacleWidth,
+      randomObstacleHeight
+    );
+    currentGame.rightSideObst.push(rightSideObstacle);
+
+    //left side
     const newObstacle = new Obstacles(
       randomObstacleX,
       randomObstacleY,
       randomObstacleWidth,
       randomObstacleHeight
     );
-
     currentGame.obstacles.push(newObstacle);
   }
 
-  currentGame.obstacles.forEach((obstacle, index) => {
-    if (obstacle.x < 0) {
-      obstacle.x += 5;
+  //right side
+  currentGame.rightSideObst.forEach((obstacle, index) => {
+    if (obstacle.x > canvas.width - obstacle.width && obstacle.forward) {
+      obstacle.x -= 2;
+    } else if (obstacle.x <= canvas.width - obstacle.width) {
+      obstacle.forward = false;
+      obstacle.x += 2;
+    } else {
+      obstacle.x += 2;
     }
+    obstacle.moveObstacles();
+    obstacle.drawObstRight();
 
-    obstacle.drawObst();
-
-    //Check collision
+    //Check collision - right
     if (detectCollision(obstacle)) {
       currentGame.gameOver = true;
       currentGame.obstFreq = 0;
       currentGame.score = 0;
+      currentGame.rightSideObst = [];
       currentGame.obstacles = [];
       // document.getElementById("score").innerHTML = 0;
       // document.getElementById("game-board").style.display = "none";
@@ -93,6 +111,43 @@ function updateCanvas() {
 
     if (obstacle.x > canvas.width) {
       // currentGame.score++;
+      // document.getElementById("score").innerHTML = currentGame.score;
+
+      currentGame.rightSideObst.splice(index, 1);
+    }
+  });
+
+  //left side
+  currentGame.obstacles.forEach((obstacle, index) => {
+    if (obstacle.x < 0 && obstacle.forward) {
+      obstacle.x += 2;
+    } else if (obstacle.x >= 0) {
+      obstacle.forward = false;
+      obstacle.x -= 2;
+    } else {
+      obstacle.x -= 2;
+    }
+
+    obstacle.moveObstacles();
+    obstacle.drawObst();
+
+    //Check collision - left
+    if (detectCollision(obstacle)) {
+      currentGame.gameOver = true;
+      currentGame.obstFreq = 0;
+      currentGame.score = 0;
+      currentGame.rightSideObst = [];
+      currentGame.obstacles = [];
+      // document.getElementById("score").innerHTML = 0;
+      // document.getElementById("game-board").style.display = "none";
+      cancelAnimationFrame(currentGame.animationId);
+      alert("BOOOOMM! GAME OVER!");
+      console.log("death by paw");
+    }
+
+    if (obstacle.x + obstacle.width <= 0) {
+      // currentGame.score++;
+
       // document.getElementById("score").innerHTML = currentGame.score;
       currentGame.obstacles.splice(index, 1);
     }

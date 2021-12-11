@@ -3,6 +3,7 @@ class Game {
   constructor() {
     this.player = {};
     this.obstacles = [];
+    this.rightSideObst = [];
     this.obstFreq = 0;
     this.score = 0;
     this.animationId = null;
