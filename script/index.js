@@ -21,6 +21,9 @@ let restartSound = document.getElementById("restart-sound");
 let cheeseSound = document.getElementById("cheese");
 
 let pawHit = document.getElementById("paw-hit");
+pawHit.volume = 0.8;
+
+let gameOverSound = document.getElementById("game-over");
 
 //collision counter
 let collisionCounter = 0;
@@ -136,7 +139,7 @@ function updateCanvas() {
         document.getElementById("2-heart").style.visibility = "hidden";
         document.getElementById("3-heart").style.visibility = "hidden";
       } else if (collisionCounter > 3) {
-        currentGame.coffin.drawCoffin();
+        // currentGame.coffin.drawCoffin();
         currentGame.gameOver = true;
         currentGame.obstFreq = 0;
         currentGame.score = 0;
@@ -145,8 +148,8 @@ function updateCanvas() {
         document.getElementById("score").innerHTML = 0;
       }
 
+      collisionCounter <= 3 ? pawHit.play() : gameOverSound.play();
       // document.getElementById("game-board").style.display = "none";
-      pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
     }
 
@@ -189,7 +192,7 @@ function updateCanvas() {
         document.getElementById("2-heart").style.visibility = "hidden";
         document.getElementById("3-heart").style.visibility = "hidden";
       } else if (collisionCounter > 3) {
-        currentGame.coffin.drawCoffin();
+        // currentGame.coffin.drawCoffin();
         currentGame.gameOver = true;
         currentGame.obstFreq = 0;
         currentGame.score = 0;
@@ -198,7 +201,7 @@ function updateCanvas() {
         document.getElementById("score").innerHTML = 0;
       }
 
-      pawHit.play();
+      collisionCounter <= 3 ? pawHit.play() : gameOverSound.play();
       cancelAnimationFrame(currentGame.animationId);
     }
 
