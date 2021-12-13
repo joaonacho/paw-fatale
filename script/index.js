@@ -14,6 +14,8 @@ let background = new Background(500, 700);
 let currentGame = new Game();
 
 //sound effects
+let gameTheme = document.getElementById("game-theme");
+
 let startSound = document.getElementById("start-sound");
 
 let restartSound = document.getElementById("restart-sound");
@@ -21,7 +23,7 @@ let restartSound = document.getElementById("restart-sound");
 let cheeseSound = document.getElementById("cheese");
 
 let pawHit = document.getElementById("paw-hit");
-pawHit.volume = 0.8;
+pawHit.volume = 0.9;
 
 let gameOverSound = document.getElementById("game-over");
 
@@ -31,6 +33,8 @@ let collisionCounter = 0;
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startGame();
+    gameTheme.play();
+    gameTheme.volume = 0.1;
     startSound.play();
     document.getElementById("start-button").style.visibility = "hidden";
     document.getElementById("restart-button").style.visibility = "visible";
@@ -79,18 +83,18 @@ function updateCanvas() {
 
   currentGame.obstFreq++;
 
-  if (currentGame.obstFreq % 50 === 1) {
-    const randomObstacleWidth = Math.floor(Math.random() * 160) + 100;
+  if (currentGame.obstFreq % 70 === 1) {
+    const randomObstacleWidth = Math.floor(Math.random() * 230) + 100;
     const randomObstacleX = -randomObstacleWidth;
     const randomObstacleY = Math.floor(Math.random() * 600);
-    const randomObstacleHeight = 40;
+    const randomObstacleHeight = 50;
 
     //right side
     const randomObstX = canvas.width;
 
     const rightSideObstacle = new Obstacles(
       randomObstX,
-      randomObstacleY - 60,
+      randomObstacleY - 150,
       randomObstacleWidth,
       randomObstacleHeight
     );
@@ -140,16 +144,19 @@ function updateCanvas() {
         document.getElementById("3-heart").style.visibility = "hidden";
       } else if (collisionCounter > 3) {
         // currentGame.coffin.drawCoffin();
+        document.getElementById("game-board").style.display = "none";
+        document.getElementById("gameOver-image").style.display = "block";
+        document.getElementById("game-over-text").style.display = "block";
+        gameTheme.pause();
         currentGame.gameOver = true;
         currentGame.obstFreq = 0;
         currentGame.score = 0;
         currentGame.rightSideObst = [];
         currentGame.obstacles = [];
-        document.getElementById("score").innerHTML = 0;
+        // document.getElementById("score").innerHTML = 0;
       }
 
       collisionCounter <= 3 ? pawHit.play() : gameOverSound.play();
-      // document.getElementById("game-board").style.display = "none";
       cancelAnimationFrame(currentGame.animationId);
     }
 
@@ -193,12 +200,16 @@ function updateCanvas() {
         document.getElementById("3-heart").style.visibility = "hidden";
       } else if (collisionCounter > 3) {
         // currentGame.coffin.drawCoffin();
+        document.getElementById("game-board").style.display = "none";
+        document.getElementById("gameOver-image").style.display = "block";
+        document.getElementById("game-over-text").style.display = "block";
+        gameTheme.pause();
         currentGame.gameOver = true;
         currentGame.obstFreq = 0;
         currentGame.score = 0;
         currentGame.rightSideObst = [];
         currentGame.obstacles = [];
-        document.getElementById("score").innerHTML = 0;
+        // document.getElementById("score").innerHTML = 0;
       }
 
       collisionCounter <= 3 ? pawHit.play() : gameOverSound.play();

@@ -42,7 +42,12 @@
         </p>
       </div>
 
-      <div>
+      <div id="game-board">
+        <audio
+          id="game-theme"
+          src="./../sounds/8bit-good-the-bad-and-the-ugly.mp3"
+        ></audio>
+
         <audio id="cheese" src="./../sounds/mouse_squeak.wav"></audio>
 
         <audio
@@ -75,6 +80,13 @@
         <script src="./../script/game.js"></script>
         <script src="./../script/index.js"></script>
       </div>
+
+      <h2 id="game-over-text">You got<span> PAWED!!!</span></h2>
+      <img
+        id="gameOver-image"
+        src="./../images/gameOver.png"
+        alt="gameoverImage"
+      />
     </section>
 
     <div>
