@@ -22,6 +22,9 @@ let cheeseSound = document.getElementById("cheese");
 
 let pawHit = document.getElementById("paw-hit");
 
+//collision counter
+let collisionCounter = 0;
+
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startGame();
@@ -115,13 +118,33 @@ function updateCanvas() {
 
     //Check collision - right
     if (detectCollision(obstacle)) {
-      currentGame.gameOver = true;
-      currentGame.obstFreq = 0;
-      currentGame.score = 0;
-      currentGame.rightSideObst = [];
-      currentGame.obstacles = [];
-      // document.getElementById("1-heart").style.visibility = "hidden";
-      document.getElementById("score").innerHTML = 0;
+      collisionCounter += 1;
+
+      if (collisionCounter == 1) {
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("1-heart").style.visibility = "hidden";
+      } else if (collisionCounter == 2) {
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("1-heart").style.visibility = "hidden";
+        document.getElementById("2-heart").style.visibility = "hidden";
+      } else if (collisionCounter == 3) {
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("1-heart").style.visibility = "hidden";
+        document.getElementById("2-heart").style.visibility = "hidden";
+        document.getElementById("3-heart").style.visibility = "hidden";
+      } else if (collisionCounter > 3) {
+        collisionCounter += 1;
+        currentGame.gameOver = true;
+        currentGame.obstFreq = 0;
+        currentGame.score = 0;
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("score").innerHTML = 0;
+      }
+
       // document.getElementById("game-board").style.display = "none";
       pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
