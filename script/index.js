@@ -136,7 +136,7 @@ function updateCanvas() {
         document.getElementById("2-heart").style.visibility = "hidden";
         document.getElementById("3-heart").style.visibility = "hidden";
       } else if (collisionCounter > 3) {
-        collisionCounter += 1;
+        currentGame.coffin.drawCoffin();
         currentGame.gameOver = true;
         currentGame.obstFreq = 0;
         currentGame.score = 0;
@@ -171,13 +171,33 @@ function updateCanvas() {
 
     //Check collision - left
     if (detectCollision(obstacle)) {
-      currentGame.gameOver = true;
-      currentGame.obstFreq = 0;
-      currentGame.score = 0;
-      currentGame.rightSideObst = [];
-      currentGame.obstacles = [];
-      document.getElementById("score").innerHTML = 0;
-      // document.getElementById("game-board").style.display = "none";
+      collisionCounter += 1;
+
+      if (collisionCounter == 1) {
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("1-heart").style.visibility = "hidden";
+      } else if (collisionCounter == 2) {
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("1-heart").style.visibility = "hidden";
+        document.getElementById("2-heart").style.visibility = "hidden";
+      } else if (collisionCounter == 3) {
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("1-heart").style.visibility = "hidden";
+        document.getElementById("2-heart").style.visibility = "hidden";
+        document.getElementById("3-heart").style.visibility = "hidden";
+      } else if (collisionCounter > 3) {
+        currentGame.coffin.drawCoffin();
+        currentGame.gameOver = true;
+        currentGame.obstFreq = 0;
+        currentGame.score = 0;
+        currentGame.rightSideObst = [];
+        currentGame.obstacles = [];
+        document.getElementById("score").innerHTML = 0;
+      }
+
       pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
     }

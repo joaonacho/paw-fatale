@@ -9,5 +9,6 @@ class Game {
     this.animationId = null;
     this.gameOver = false;
     this.cheese = new Cheese(200, 350);
+    this.coffin = new Coffin(100, 150);
   }
 }
