@@ -37,10 +37,9 @@ function clearCanvas() {
 }
 
 function startGame() {
-  //assigns player1(previously created) to the new game
   currentGame.player = player1;
 
-  // cancelAnimationFrame(currentGame.animationId);
+  cancelAnimationFrame(currentGame.animationId);
 
   updateCanvas();
 }
@@ -78,14 +77,14 @@ function updateCanvas() {
     const randomObstacleWidth = Math.floor(Math.random() * 160) + 100;
     const randomObstacleX = -randomObstacleWidth;
     const randomObstacleY = Math.floor(Math.random() * 600);
-    const randomObstacleHeight = 50;
+    const randomObstacleHeight = 40;
 
     //right side
     const randomObstX = canvas.width;
 
     const rightSideObstacle = new Obstacles(
       randomObstX,
-      randomObstacleY - 80,
+      randomObstacleY - 60,
       randomObstacleWidth,
       randomObstacleHeight
     );
@@ -121,15 +120,14 @@ function updateCanvas() {
       currentGame.score = 0;
       currentGame.rightSideObst = [];
       currentGame.obstacles = [];
+      // document.getElementById("1-heart").style.visibility = "hidden";
       document.getElementById("score").innerHTML = 0;
       // document.getElementById("game-board").style.display = "none";
       pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
-      console.log("death by paw");
     }
 
     if (obstacle.x > canvas.width) {
-      // currentGame.score++;
       currentGame.rightSideObst.splice(index, 1);
     }
   });
@@ -159,7 +157,6 @@ function updateCanvas() {
       // document.getElementById("game-board").style.display = "none";
       pawHit.play();
       cancelAnimationFrame(currentGame.animationId);
-      console.log("death by paw");
     }
 
     if (obstacle.x + obstacle.width <= 0) {

@@ -3,7 +3,6 @@ class Background {
   constructor(width, height) {
     this.x = 0;
     this.y = 0;
-    // this.dy = dy;
     this.width = width;
     this.height = height;
     this.speed = -0.2;

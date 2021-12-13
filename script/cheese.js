@@ -3,8 +3,7 @@ class Cheese {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    // this.dy = dy;
-    this.width = 60;
+    this.width = 45;
     this.height = 40;
     this.img = new Image();
     this.img.src = "./../images/cheese.png";
@@ -15,8 +14,8 @@ class Cheese {
   }
 
   setRandomPosition() {
-    this.x = Math.floor(Math.random() * 400);
-    this.y = Math.floor(Math.random() * 600);
+    this.x = Math.floor(Math.random() * 420);
+    this.y = Math.floor(Math.random() * 620);
   }
 
   cheeseCollision(player) {

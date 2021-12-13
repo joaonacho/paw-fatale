@@ -8,10 +8,10 @@ class Obstacles {
     this.forward = true;
     this.speed = -0.2;
     this.obstImg = new Image();
-    this.obstImg.src = "./../images/cat-paw_ex.png";
+    this.obstImg.src = "./../images/pawLeft.png";
 
     this.obstImgRight = new Image();
-    this.obstImgRight.src = "./../images/cat-paw_ex_right.png";
+    this.obstImgRight.src = "./../images/pawRight.png";
   }
 
   moveObstacles() {
@@ -20,8 +20,6 @@ class Obstacles {
 
   drawObst() {
     ctx.drawImage(this.obstImg, this.x, this.y, this.width, this.height);
-    // ctx.fillStyle = "white";
-    // ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
   drawObstRight() {

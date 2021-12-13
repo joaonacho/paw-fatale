@@ -25,9 +25,7 @@ h1 {
   text-align: left;
   width: 100%;
   font-size: 78px;
-  /* border: white 2px solid; */
   margin-left: 10%;
-  margin-top: 10%;
   transition: color 0.5s;
 }
 
@@ -53,12 +51,11 @@ span {
 #canvas {
   border-radius: 8px;
   margin-left: 900px;
-  margin-top: -18%;
+  margin-top: -20%;
   background-image: url("./../images/mouse.png");
   background-repeat: repeat;
-  transition: all 6s ease-out;
-  background-position: bottom;
-  background-size: 144px;
+  transition: all 4s ease-out;
+  background-size: 155px;
 }
 
 #canvas:hover {
@@ -99,4 +96,10 @@ span {
 
 #restart-button:hover {
   background-color: rgb(202, 0, 0);
+}
+
+.lives {
+  margin-top: 3px;
+  width: 25px;
+  height: 25px;
 }
