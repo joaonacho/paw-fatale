@@ -12,13 +12,11 @@ let btninstructions = document.getElementById("instruction-button");
 let instructions = document.querySelectorAll(".points");
 
 btninstructions.addEventListener("click", () => {
+  instructionsSound.play();
   instructions.forEach((elem) => {
     elem.classList.toggle("c-active");
   });
 });
-
-//Play again button
-let playAgainBtn = document.getElementById("restart-button");
 
 //starting classes
 let player1 = new Player(210, 610, 80, 100);
@@ -32,7 +30,8 @@ let gameTheme = document.getElementById("game-theme");
 
 let startSound = document.getElementById("start-sound");
 
-let restartSound = document.getElementById("restart-sound");
+let instructionsSound = document.getElementById("instructions-sound");
+instructionsSound.volume = 0.4;
 
 let cheeseSound = document.getElementById("cheese");
 
@@ -54,6 +53,10 @@ window.onload = () => {
     document.getElementById("restart-button").style.visibility = "visible";
     document.getElementById("scoreDiv").style.visibility = "visible";
   };
+  //Play again button
+  document.getElementById("restart-button").onclick = () => {
+    location.reload();
+  };
 };
 
 function clearCanvas() {
@@ -62,9 +65,6 @@ function clearCanvas() {
 
 function startGame() {
   currentGame.player = player1;
-
-  cancelAnimationFrame(currentGame.animationId);
-
   updateCanvas();
 }
 
@@ -80,11 +80,9 @@ function detectCollision(obstacle) {
 
 function updateCanvas() {
   clearCanvas();
-
   background.drawBackground();
   background.moveBack();
   player1.drawPlayer();
-
   currentGame.cheese.drawCheese();
 
   const gotCheese = currentGame.cheese.cheeseCollision(currentGame.player);
@@ -162,15 +160,9 @@ function updateCanvas() {
         document.getElementById("game-over-text").style.display = "block";
         gameTheme.pause();
         currentGame.gameOver = true;
-        currentGame.obstFreq = 0;
-        currentGame.score = 0;
-        currentGame.rightSideObst = [];
-        currentGame.obstacles = [];
-        // document.getElementById("score").innerHTML = 0;
       }
 
       collisionCounter <= 3 ? pawHit.play() : gameOverSound.play();
-      cancelAnimationFrame(currentGame.animationId);
     }
 
     if (obstacle.x > canvas.width) {
@@ -217,15 +209,9 @@ function updateCanvas() {
         document.getElementById("game-over-text").style.display = "block";
         gameTheme.pause();
         currentGame.gameOver = true;
-        currentGame.obstFreq = 0;
-        currentGame.score = 0;
-        currentGame.rightSideObst = [];
-        currentGame.obstacles = [];
-        // document.getElementById("score").innerHTML = 0;
       }
 
       collisionCounter <= 3 ? pawHit.play() : gameOverSound.play();
-      cancelAnimationFrame(currentGame.animationId);
     }
 
     if (obstacle.x + obstacle.width <= 0) {
@@ -233,7 +219,10 @@ function updateCanvas() {
     }
   });
 
-  requestAnimationFrame(updateCanvas);
+  //Game over
+  currentGame.gameOver
+    ? cancelAnimationFrame(currentGame.animationId)
+    : requestAnimationFrame(updateCanvas);
 }
 
 document.addEventListener("keydown", (keyboardEvent) => {
