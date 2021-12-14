@@ -3,7 +3,7 @@ class Player {
   constructor(x, y, width, height) {
     this.x = x;
     this.y = y;
-    this.dy = 2;
+    this.speed = -0.2;
     this.width = width;
     this.height = height;
     this.img = new Image();
@@ -36,6 +36,9 @@ class Player {
           this.x += 10;
         }
         break;
+      // case !key:
+      //   this.y -= this.speed;
+      //   break;
     }
   }
 }

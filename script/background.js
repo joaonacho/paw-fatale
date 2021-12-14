@@ -5,9 +5,9 @@ class Background {
     this.y = 0;
     this.width = width;
     this.height = height;
-    this.speed = -0.2;
+    this.speed = -0.3;
     this.backImg = new Image();
-    this.backImg.src = "./../images/background_02.png";
+    this.backImg.src = "./../images/background_space.png";
   }
 
   moveBack() {

@@ -34,7 +34,7 @@ window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     startGame();
     gameTheme.play();
-    gameTheme.volume = 0.1;
+    gameTheme.volume = 0.2;
     startSound.play();
     document.getElementById("start-button").style.visibility = "hidden";
     document.getElementById("restart-button").style.visibility = "visible";

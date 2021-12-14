@@ -50,10 +50,28 @@ span {
   color: rgb(175, 0, 0);
 }
 
+#instruction-button {
+  width: 150px;
+  height: 30px;
+  margin-left: 10%;
+  font-size: 18px;
+  margin-top: 15px;
+  background-color: rgb(126, 0, 0);
+  border-radius: 15px;
+  color: lightgrey;
+  font-family: monospace;
+  transition: all 0.25s;
+}
+
+#instruction-button:hover {
+  background-color: rgb(184, 0, 0);
+  font-weight: bold;
+}
+
 #canvas {
   border-radius: 8px;
   margin-left: 900px;
-  margin-top: -20%;
+  margin-top: -24%;
   background-image: url("./../images/mouse.png");
   background-repeat: repeat;
   transition: all 4s ease-out;
@@ -72,15 +90,16 @@ span {
   margin-left: 1080px;
   margin-top: 4px;
   font-size: 22px;
-  background-color: darkred;
-  border-radius: 6px;
+  background-color: rgb(126, 0, 0);
+  border-radius: 15px;
   color: lightgrey;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  transition: background-color 0.25s;
+  font-family: monospace;
+  transition: all 0.25s;
 }
 
 #start-button:hover {
-  background-color: rgb(202, 0, 0);
+  background-color: rgb(184, 0, 0);
+  font-weight: bold;
 }
 
 #restart-button {
@@ -88,16 +107,17 @@ span {
   height: 30px;
   margin-left: 1080px;
   font-size: 20px;
-  background-color: darkred;
-  border-radius: 6px;
+  background-color: rgb(126, 0, 0);
+  border-radius: 15px;
   color: lightgrey;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  transition: background-color 0.25s;
+  font-family: monospace;
+  transition: all 0.25s;
   visibility: hidden;
 }
 
 #restart-button:hover {
-  background-color: rgb(202, 0, 0);
+  background-color: rgb(184, 0, 0);
+  font-weight: bold;
 }
 
 .lives {
@@ -109,7 +129,7 @@ span {
 #gameOver-image {
   margin-left: 1115px;
   margin-top: -5%;
-  width: 70px;
+  width: 75px;
   height: 80px;
   display: none;
 }
