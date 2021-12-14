@@ -72,6 +72,10 @@ span {
   visibility: hidden;
 }
 
+.c-active {
+  visibility: visible;
+}
+
 .points {
   list-style-type: none;
   font-family: monospace;

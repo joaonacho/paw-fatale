@@ -4,20 +4,21 @@ const ctx = canvas.getContext("2d");
 const width = canvas.width;
 const height = canvas.height;
 
-//Canvas
+//Score
 document.getElementById("scoreDiv").style.visibility = "hidden";
 
 //Instructions
 let btninstructions = document.getElementById("instruction-button");
-let instructions = document.getElementById("instructions");
+let instructions = document.querySelectorAll(".points");
 
 btninstructions.addEventListener("click", () => {
-  if (instructions.style.visibility === "hidden") {
-    instructions.style.visibility = "visible";
-  } else {
-    instructions.style.visibility = "hidden";
-  }
+  instructions.forEach((elem) => {
+    elem.classList.toggle("c-active");
+  });
 });
+
+//Play again button
+let playAgainBtn = document.getElementById("restart-button");
 
 //starting classes
 let player1 = new Player(210, 610, 80, 100);
@@ -36,7 +37,7 @@ let restartSound = document.getElementById("restart-sound");
 let cheeseSound = document.getElementById("cheese");
 
 let pawHit = document.getElementById("paw-hit");
-pawHit.volume = 0.9;
+pawHit.volume = 0.8;
 
 let gameOverSound = document.getElementById("game-over");
 
