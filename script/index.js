@@ -4,7 +4,20 @@ const ctx = canvas.getContext("2d");
 const width = canvas.width;
 const height = canvas.height;
 
+//Canvas
 document.getElementById("scoreDiv").style.visibility = "hidden";
+
+//Instructions
+let btninstructions = document.getElementById("instruction-button");
+let instructions = document.getElementById("instructions");
+
+btninstructions.addEventListener("click", () => {
+  if (instructions.style.visibility === "hidden") {
+    instructions.style.visibility = "visible";
+  } else {
+    instructions.style.visibility = "hidden";
+  }
+});
 
 //starting classes
 let player1 = new Player(210, 610, 80, 100);
@@ -143,7 +156,6 @@ function updateCanvas() {
         document.getElementById("2-heart").style.visibility = "hidden";
         document.getElementById("3-heart").style.visibility = "hidden";
       } else if (collisionCounter > 3) {
-        // currentGame.coffin.drawCoffin();
         document.getElementById("game-board").style.display = "none";
         document.getElementById("gameOver-image").style.display = "block";
         document.getElementById("game-over-text").style.display = "block";
@@ -199,7 +211,6 @@ function updateCanvas() {
         document.getElementById("2-heart").style.visibility = "hidden";
         document.getElementById("3-heart").style.visibility = "hidden";
       } else if (collisionCounter > 3) {
-        // currentGame.coffin.drawCoffin();
         document.getElementById("game-board").style.display = "none";
         document.getElementById("gameOver-image").style.display = "block";
         document.getElementById("game-over-text").style.display = "block";

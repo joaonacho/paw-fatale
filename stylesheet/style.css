@@ -68,10 +68,22 @@ span {
   font-weight: bold;
 }
 
+#instructions {
+  visibility: hidden;
+}
+
+.points {
+  list-style-type: none;
+  font-family: monospace;
+  font-size: 20px;
+  margin-left: 10px;
+  color: lightgrey;
+}
+
 #canvas {
   border-radius: 8px;
   margin-left: 900px;
-  margin-top: -24%;
+  margin-top: -37%;
   background-image: url("./../images/mouse.png");
   background-repeat: repeat;
   transition: all 4s ease-out;
@@ -128,16 +140,16 @@ span {
 
 #gameOver-image {
   margin-left: 1115px;
-  margin-top: -5%;
-  width: 75px;
-  height: 80px;
+  margin-top: -10%;
+  width: 85px;
+  height: 90px;
   display: none;
 }
 
 #game-over-text {
   font-family: monospace;
   margin-left: 1030px;
-  margin-top: -10%;
+  margin-top: -18%;
   font-size: 30px;
   display: none;
 }
