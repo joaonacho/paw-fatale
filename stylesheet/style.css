@@ -143,10 +143,10 @@ span {
 }
 
 #gameOver-image {
-  margin-left: 1115px;
+  margin-left: 1045px;
   margin-top: -10%;
-  width: 85px;
-  height: 90px;
+  width: 250px;
+  height: 255px;
   display: none;
 }
 

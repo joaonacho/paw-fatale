@@ -20,24 +20,17 @@ btninstructions.addEventListener("click", () => {
 
 //starting classes
 let player1 = new Player(210, 610, 80, 100);
-
 let background = new Background(500, 700);
-
 let currentGame = new Game();
 
 //sound effects
 let gameTheme = document.getElementById("game-theme");
-
 let startSound = document.getElementById("start-sound");
-
 let instructionsSound = document.getElementById("instructions-sound");
 instructionsSound.volume = 0.4;
-
 let cheeseSound = document.getElementById("cheese");
-
 let pawHit = document.getElementById("paw-hit");
 pawHit.volume = 0.8;
-
 let gameOverSound = document.getElementById("game-over");
 
 //collision counter
