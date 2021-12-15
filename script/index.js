@@ -1,6 +1,5 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-
 const width = canvas.width;
 const height = canvas.height;
 
@@ -134,16 +133,13 @@ function updateCanvas() {
 
       if (collisionCounter == 1) {
         currentGame.rightSideObst = [];
-        currentGame.obstacles = [];
         document.getElementById("1-heart").style.visibility = "hidden";
       } else if (collisionCounter == 2) {
         currentGame.rightSideObst = [];
-        currentGame.obstacles = [];
         document.getElementById("1-heart").style.visibility = "hidden";
         document.getElementById("2-heart").style.visibility = "hidden";
       } else if (collisionCounter == 3) {
         currentGame.rightSideObst = [];
-        currentGame.obstacles = [];
         document.getElementById("1-heart").style.visibility = "hidden";
         document.getElementById("2-heart").style.visibility = "hidden";
         document.getElementById("3-heart").style.visibility = "hidden";
@@ -182,16 +178,13 @@ function updateCanvas() {
       collisionCounter += 1;
 
       if (collisionCounter == 1) {
-        currentGame.rightSideObst = [];
         currentGame.obstacles = [];
         document.getElementById("1-heart").style.visibility = "hidden";
       } else if (collisionCounter == 2) {
-        currentGame.rightSideObst = [];
         currentGame.obstacles = [];
         document.getElementById("1-heart").style.visibility = "hidden";
         document.getElementById("2-heart").style.visibility = "hidden";
       } else if (collisionCounter == 3) {
-        currentGame.rightSideObst = [];
         currentGame.obstacles = [];
         document.getElementById("1-heart").style.visibility = "hidden";
         document.getElementById("2-heart").style.visibility = "hidden";
