@@ -36,9 +36,6 @@ class Player {
           this.x += 10;
         }
         break;
-      // case !key:
-      //   this.y -= this.speed;
-      //   break;
     }
   }
 }
