@@ -7,7 +7,7 @@ class Player {
     this.width = width;
     this.height = height;
     this.img = new Image();
-    this.img.src = "./../images/mouse.png";
+    this.img.src = "./images/mouse.png";
   }
 
   drawPlayer() {

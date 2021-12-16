@@ -6,7 +6,7 @@ class Cheese {
     this.width = 45;
     this.height = 40;
     this.img = new Image();
-    this.img.src = "./../images/cheese.png";
+    this.img.src = "./images/cheese.png";
   }
 
   drawCheese() {

@@ -8,10 +8,10 @@ class Obstacles {
     this.forward = true;
     this.speed = -0.2;
     this.obstImg = new Image();
-    this.obstImg.src = "./../images/pawLeft.png";
+    this.obstImg.src = "./images/pawLeft.png";
 
     this.obstImgRight = new Image();
-    this.obstImgRight.src = "./../images/pawRight.png";
+    this.obstImgRight.src = "./images/pawRight.png";
   }
 
   moveObstacles() {

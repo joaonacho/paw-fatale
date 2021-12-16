@@ -7,7 +7,7 @@ class Background {
     this.height = height;
     this.speed = -0.3;
     this.backImg = new Image();
-    this.backImg.src = "./../images/background_space.png";
+    this.backImg.src = "./images/background_space.png";
   }
 
   moveBack() {
