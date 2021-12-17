@@ -63,7 +63,7 @@ function startGame() {
 function adjustZoom() {
   let screenHeight = window.screen.height;
   if (screenHeight >= 1080) {
-    document.body.style.zoom = 1.3;
+    document.body.style.zoom = 1.2;
   } else if (screenHeight >= 720 && screenHeight < 1080) {
     document.body.style.zoom = 0.8;
   }
