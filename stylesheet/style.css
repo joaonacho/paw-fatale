@@ -152,7 +152,7 @@ span {
 
 #game-over-text {
   font-family: monospace;
-  margin-left: 1030px;
+  margin-left: 75%;
   margin-top: -18%;
   font-size: 30px;
   display: none;
