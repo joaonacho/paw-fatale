@@ -60,6 +60,17 @@ function startGame() {
   updateCanvas();
 }
 
+function adjustZoom() {
+  let screenHeight = window.screen.height;
+  if (screenHeight >= 1080) {
+    document.body.style.zoom = 1.3;
+  } else if (screenHeight >= 720 && screenHeight < 1080) {
+    document.body.style.zoom = 0.8;
+  }
+}
+
+adjustZoom();
+
 //detect collision function
 function detectCollision(obstacle) {
   return !(
