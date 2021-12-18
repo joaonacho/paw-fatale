@@ -12,7 +12,7 @@ body {
   font-size: 25px;
   color: white;
   margin-top: 5px;
-  margin-left: 78%;
+  margin-left: 80%;
   height: 2px;
   font-family: monospace;
 }
@@ -20,6 +20,7 @@ body {
 .section-1 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 h1 {
@@ -86,8 +87,8 @@ span {
 
 #canvas {
   border-radius: 8px;
-  margin-left: 900px;
-  margin-top: 6%;
+  margin-top: 15%;
+  margin-right: 75px;
   background-image: url("./../images/mouse.png");
   background-repeat: repeat;
   transition: all 4s ease-out;
@@ -103,7 +104,7 @@ span {
 #start-button {
   width: 150px;
   height: 30px;
-  margin-left: 77%;
+  margin-left: 78%;
   margin-top: 4px;
   font-size: 22px;
   background-color: rgb(126, 0, 0);
@@ -121,7 +122,7 @@ span {
 #restart-button {
   width: 150px;
   height: 30px;
-  margin-left: 77%;
+  margin-left: 78%;
   font-size: 20px;
   background-color: rgb(126, 0, 0);
   border-radius: 15px;
@@ -143,7 +144,7 @@ span {
 }
 
 #gameOver-image {
-  margin-left: 75%;
+  margin-left: 76%;
   margin-top: -10%;
   width: 250px;
   height: 255px;
